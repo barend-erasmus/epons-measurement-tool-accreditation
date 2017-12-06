@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   private baseUri: string = 'http://api.sadfm.co.za';
   // private baseUri: string = 'http://localhost:4484';
 
@@ -43,9 +44,9 @@ export class AppComponent {
 
     this.results = this.results.sort((a, b) => {
       if (direction === 'ASC') {
-        return ((a[column] < b[column]) ? -1 : ((a[column] > b[column]) ? 1 : 0));
+        return ((a[column].toLowerCase() < b[column].toLowerCase()) ? -1 : ((a[column].toLowerCase() > b[column].toLowerCase()) ? 1 : 0));
       } else {
-        return ((a[column] < b[column]) ? 1 : ((a[column] > b[column]) ? -1 : 0));
+        return ((a[column].toLowerCase() < b[column].toLowerCase()) ? 1 : ((a[column].toLowerCase() > b[column].toLowerCase()) ? -1 : 0));
       }
     });
   }
