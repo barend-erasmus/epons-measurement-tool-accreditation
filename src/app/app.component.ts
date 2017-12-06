@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-root',
+  selector: 'epons-measurement-tool-accreditation',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
