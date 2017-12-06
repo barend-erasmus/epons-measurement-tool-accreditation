@@ -44,9 +44,21 @@ export class AppComponent {
 
     this.results = this.results.sort((a, b) => {
       if (direction === 'ASC') {
-        return ((a[column].toLowerCase() < b[column].toLowerCase()) ? -1 : ((a[column].toLowerCase() > b[column].toLowerCase()) ? 1 : 0));
+        return ((
+          (typeof (a[column]) === 'string' ? a[column].toLowerCase() : a[column]) <
+          (typeof (b[column]) === 'string' ? b[column].toLowerCase() : b[column])
+        ) ? -1 : ((
+          (typeof (a[column]) === 'string' ? a[column].toLowerCase() : a[column]) >
+          (typeof (b[column]) === 'string' ? b[column].toLowerCase() : b[column])
+        ) ? 1 : 0));
       } else {
-        return ((a[column].toLowerCase() < b[column].toLowerCase()) ? 1 : ((a[column].toLowerCase() > b[column].toLowerCase()) ? -1 : 0));
+        return ((
+          (typeof (a[column]) === 'string' ? a[column].toLowerCase() : a[column]) <
+          (typeof (b[column]) === 'string' ? b[column].toLowerCase() : b[column])
+        ) ? 1 : ((
+          (typeof (a[column]) === 'string' ? a[column].toLowerCase() : a[column]) >
+          (typeof (b[column]) === 'string' ? b[column].toLowerCase() : b[column])
+        ) ? -1 : 0));
       }
     });
   }
